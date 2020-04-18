@@ -1,25 +1,115 @@
-let arr: readonly number[] = [1, 2, 3]
-arr.push(1);
-arr[100] = 122;
+// type vs interface
 
-let tupleArr: readonly [string, number] = ['some const', 1];
-tupleArr.push(1);
-tupleArr[100] = 122;
+// 1. Object / Function
 
-
-// const str = 'Igor';
+// interface IPoint {
+//     x: number;
+//     y: number;
+// }
 //
-// let s: typeof str = 'asdasd'
+// let p1: IPoint = {
+//     x: 10,
+//     y: 10
+// }
+//
+// type TPoint = {
+//     x: number;
+//     y: number;
+// }
+//
+// let p2: TPoint = {
+//     x: 10,
+//     y: 10
+// }
+//
+// interface ISetPoint {
+//     (x: number, y: number): void
+// }
+//
+// type TSetPoint = (x: number, y: number) => void
+//
+// let fn1: ISetPoint = function a(_x: number, _y: number) {
+//
+// }
+//
+// let fn2: TSetPoint = function a(_x, _y): void {
+// }
 
-let x = 10 as const;
-let y  = [10, 20] as const;
 
-y.push(10);
-y[100] = 1;
+// 2.  implements
 
-let foo = {
-    name: 'foo',
-    contents: y
-} as const
+// interface IPoint {
+//     x: number;
+//     y: number;
+// }
+//
+//
+// type TPoint = {
+//     x: number;
+//     y: number;
+// }
+//
+// class Point implements TPoint {
+//     x: number = 10;
+//     y: number = 10;
+// }
 
-foo = 1;
+// 3. Inheritance
+// type TPartialPointX = { x: number };
+// type TPoint = { y: number } & IPartialPointX & IPartialPointY;
+//
+// interface IPartialPointX {
+//     x: { x: number };
+// }
+//
+// interface IPartialPointY {
+//     y: number;
+//     x: { d: string };
+// }
+//
+// interface IPoint extends IPartialPointX, IPartialPointY, P {
+//     x: { d: string, x: number };
+// }
+//
+// let p1: TPoint = {
+//     x: 10,
+//     y: 10
+// }
+//
+// let p2: IPoint = {
+//     x: {d: '10', x: 10},
+//     y: 10,
+//     z: 10,
+// }
+
+
+class P {
+    z: number;
+}
+
+// let dict: { _dictname: 'some name', [key: string]: any } = {_dictname: 'some name'};
+// dict.randomkey= 'randomvalue'
+
+type snb = string ;
+type snb = string ;
+type snb = string ;
+
+let a: IA = {
+    x: 's',
+}
+
+interface  IA {
+    x: string;
+}
+
+
+interface  IB {
+    y: string;
+}
+
+
+function fn(obj: IA | IB ) {
+  if('x' instanceof obj){
+      obj.
+  }
+}
