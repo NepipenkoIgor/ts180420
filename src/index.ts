@@ -1,115 +1,35 @@
-// type vs interface
+// T extends T1 ? T2: T3
 
-// 1. Object / Function
+// type nonUndefined<T> = T extends undefined ? never :  T;
+//
+// type snub = undefined | number ;
+//
+// let a: nonUndefined<snub> = undefined;
+//
+//
+// const arr: [() => boolean | null, () => null | number] = [() => true, () => 2];
+//
+// type FirstFnReturnedType<T> = T extends [infer U, ...unknown[]]
+//       ? U extends (...args: unknown[]) => infer R
+//             ? R
+//             : never
+//       : never
+//
+// const a: FirstFnReturnedType<typeof arr> = 'sd';
+//
+// let a: Exclude<any, any>
 
-// interface IPoint {
-//     x: number;
-//     y: number;
-// }
-//
-// let p1: IPoint = {
-//     x: 10,
-//     y: 10
-// }
-//
-// type TPoint = {
-//     x: number;
-//     y: number;
-// }
-//
-// let p2: TPoint = {
-//     x: 10,
-//     y: 10
-// }
-//
-// interface ISetPoint {
-//     (x: number, y: number): void
-// }
-//
-// type TSetPoint = (x: number, y: number) => void
-//
-// let fn1: ISetPoint = function a(_x: number, _y: number) {
-//
-// }
-//
-// let fn2: TSetPoint = function a(_x, _y): void {
-// }
-
-
-// 2.  implements
-
-// interface IPoint {
-//     x: number;
-//     y: number;
-// }
-//
-//
-// type TPoint = {
-//     x: number;
-//     y: number;
-// }
-//
-// class Point implements TPoint {
-//     x: number = 10;
-//     y: number = 10;
-// }
-
-// 3. Inheritance
-// type TPartialPointX = { x: number };
-// type TPoint = { y: number } & IPartialPointX & IPartialPointY;
-//
-// interface IPartialPointX {
-//     x: { x: number };
-// }
-//
-// interface IPartialPointY {
-//     y: number;
-//     x: { d: string };
-// }
-//
-// interface IPoint extends IPartialPointX, IPartialPointY, P {
-//     x: { d: string, x: number };
-// }
-//
-// let p1: TPoint = {
-//     x: 10,
-//     y: 10
-// }
-//
-// let p2: IPoint = {
-//     x: {d: '10', x: 10},
-//     y: 10,
-//     z: 10,
-// }
-
-
-class P {
-    z: number;
+function fn(_a: number, _b: string, _c: bigint): boolean {
+    return true;
 }
+type A = (_a: number, _b: string, _c: bigint) => boolean;
 
-// let dict: { _dictname: 'some name', [key: string]: any } = {_dictname: 'some name'};
-// dict.randomkey= 'randomvalue'
+type NoNFunction<T> = T extends Function ? never : T
+type FunctionParamsAndReturnType<T> = T extends (...args: infer Args) => infer R // Args => [number,string,bigint ]
+    ? NoNFunction<Args[keyof Args]>| R
+    : never;
 
-type snb = string ;
-type snb = string ;
-type snb = string ;
-
-let a: IA = {
-    x: 's',
-}
-
-interface  IA {
-    x: string;
-}
-
-
-interface  IB {
-    y: string;
-}
-
-
-function fn(obj: IA | IB ) {
-  if('x' instanceof obj){
-      obj.
-  }
-}
+const c1: FunctionParamsAndReturnType<typeof fn> = 1;
+const c2: FunctionParamsAndReturnType<typeof fn> = true;
+const c3: FunctionParamsAndReturnType<typeof fn> = 'str';
+const c4: FunctionParamsAndReturnType<typeof fn> = Symbol('key');
