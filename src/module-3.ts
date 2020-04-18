@@ -15,7 +15,7 @@ async function* getItemsReallySlowly<T>(items: Iterable<T>): AsyncIterableIterat
     }
 }
 
-export async function speakLikeSloth1(items: string[]) {
+export async function speakLikeSloth3(items: string[]) {
     for await (const item of getItemsReallySlowly(items)) {
         console.log(item);
     }
