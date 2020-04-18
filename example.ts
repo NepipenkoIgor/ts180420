@@ -1,35 +1,32 @@
-Object.defineProperty(window, "MySweetApp", {value: "v1.0.0", writable: true});
+Object.defineProperty(window, 'MySweetApp', {value: 'v1.0.0', writable: true});
 
 function deliveryMethod() {
     // TODO
-    return "overnight";
+    return 'overnight';
 }
 
-function shipWeight() {
+function shipWeight(): number {
     const el: HTMLElement | null = document.getElementById('weight');
     if (!el) {
         return 0;
     }
-    return parseInt(el.innerHTML);
+    return parseInt(el.innerHTML, 10);
 }
 
 function sendUpdates(emailAddr: string | string[]) {
     function sendEmail(addr: string) {
-        console.log(`Shipping to ${addr} via ${deliveryMethod() || "standard"} delivery`);
+        console.log(`Shipping to ${addr} via ${deliveryMethod() || 'standard'} delivery`);
 
         if (shipWeight() > 100) {
-            console.log("WARNING: Oversize package");
+            console.log('WARNING: Oversize package');
         }
     }
 
-    if (emailAddr instanceof  Array) {
-        emailAddr.forEach((val, index ) => {
+    if (emailAddr instanceof Array) {
+        emailAddr.forEach((val) => {
             sendEmail(val.trim());
         });
     } else {
-
+        sendEmail(emailAddr.trim());
     }
 }
-
-/** @type{Array.<number>} */
-let arr = ['s'];
