@@ -2,7 +2,7 @@
   "name": "ts180420",
   "version": "1.0.0",
   "description": "",
-  "main": "example.ts",
+  "main": "old/1-ts-start/example.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "html-webpack-plugin": "^4.2.0",
+    "ts-loader": "^7.0.0",
+    "ts-node": "^8.8.2",
     "tslint": "^6.1.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   }
 }
