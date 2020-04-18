@@ -1,6 +1,9 @@
+export interface IListItem {
+    readonly title: string,
+    readonly items?: IListItem[]
+}
 
-
-export const menuList = [
+export const menuList: IListItem[] = [
     {
         title: 'Животные',
         items: [
