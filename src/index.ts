@@ -1,16 +1,19 @@
-import { checkTypeInRuntime } from './decorators';
+import { Range, Validate } from './decorators';
 
-
-class Account {
-    @checkTypeInRuntime
-    public firstName!: number;
+export class Calculator {
+    @Validate
+    public updatePercentage(
+        @Range(20, 70)  oldValue: number,
+        @Range(40, 50)  newValue: number
+    ) {
+        console.log(oldValue, newValue)
+    }
 }
 
-const user = new Account();
-console.log(user);
+const calc = new Calculator();
 
-(user.firstName as any)= 'Ihor';
+calc.updatePercentage(40, 45);
+
 setTimeout(() => {
-    console.log('Get =>', user.firstName);
-    (user.firstName as any) = 1231231;
+    calc.updatePercentage(45, 80);
 }, 5000)
