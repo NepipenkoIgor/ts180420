@@ -61,4 +61,3 @@ average(1, 1, 2, 3, 4);
 average('1', '2m', 3);
 let avg1: number = average(1);
 
-let a: Exclude<any, any>
