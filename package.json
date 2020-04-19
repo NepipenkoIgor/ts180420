@@ -31,6 +31,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "jquery": "^3.5.0"
+    "jquery": "^3.5.0",
+    "reflect-metadata": "^0.1.13"
   }
 }

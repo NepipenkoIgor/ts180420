@@ -1,21 +1,16 @@
-abstract class AbstractControl<T> {
-    public abstract model: T;
+import { checkTypeInRuntime } from './decorators';
 
-    public abstract getValue(): T;
 
-    public onFocus() {
-        // common logic;
-    }
-
-    public onBlur() {
-        // common logic;
-    }
+class Account {
+    @checkTypeInRuntime
+    public firstName!: number;
 }
 
-class MHDropDown extends AbstractControl<{ name: string, value: string }> {
-    public model = {name: '', value: ''}
+const user = new Account();
+console.log(user);
 
-    public getValue() {
-        return {name: '', value: ''};
-    };
-}
+(user.firstName as any)= 'Ihor';
+setTimeout(() => {
+    console.log('Get =>', user.firstName);
+    (user.firstName as any) = 1231231;
+}, 5000)
