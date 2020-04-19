@@ -21,7 +21,7 @@ function sendUpdates(emailAddr: string | string[]) {
             console.log('WARNING: Oversize package');
         }
     }
-
+    Array.isArray()
     if (emailAddr instanceof Array) {
         emailAddr.forEach((val) => {
             sendEmail(val.trim());
