@@ -12,8 +12,8 @@
   "devDependencies": {
     "@types/jasmine": "^3.5.10",
     "@types/jquery": "^3.3.35",
-    "css-loader": "^3.5.2",
-    "html-webpack-plugin": "^4.2.0",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
     "jasmine-core": "^3.5.0",
     "karma": "^5.0.2",
     "karma-chrome-launcher": "^3.1.0",
@@ -21,13 +21,13 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-typescript": "^5.0.2",
     "style-loader": "^1.1.4",
-    "ts-loader": "^7.0.0",
+    "ts-loader": "^9.4.2",
     "ts-node": "^8.8.2",
     "tslib": "^1.11.1",
     "tslint": "^6.1.1",
     "typescript": "^3.8.3",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
